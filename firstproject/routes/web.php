@@ -12,5 +12,33 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('form');
 });
+
+//1號路由
+// Route::get('/users/{id?}',function($id=null){
+//     if(!is_null($id)){
+//         //如果有id就重導向至/student/profile
+//         return redirect()->route('profile');
+//     }else{
+//         return '無使用者資料';
+//     }
+// });
+
+
+// //2號路由
+// Route::get('/student/profile',function(){
+//     return '已查到使用者資料';
+// })->name('profile');
+
+// Route::middleware(['first', 'second'])->group(function () {
+//     Route::get('/', function () {
+//         return 'hello';
+//         // 使用 first 和 second 中間件
+//     });
+
+//     Route::get('user/profile', function () {
+//         return 'hello1';
+//         // 使用 first 和 second 中間件
+//     });
+// });

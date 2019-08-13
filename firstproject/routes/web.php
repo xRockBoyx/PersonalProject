@@ -12,6 +12,8 @@
 */
 
 Route::get('/', function () {
+    //print(config("auth.defaults"));
+    //error_log(config("auth.defaults.passwords"));
     return view('form');
 });
 
@@ -42,3 +44,6 @@ Route::get('/', function () {
 //         // 使用 first 和 second 中間件
 //     });
 // });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

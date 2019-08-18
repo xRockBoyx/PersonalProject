@@ -1,5 +1,5 @@
 <?php
-
+use App\News;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,9 +14,27 @@
 Route::get('/', function () {
     //print(config("auth.defaults"));
     //error_log(config("auth.defaults.passwords"));
-    return view('form');
+    return view('index');
 });
-
+Route::get('/insert',function(){
+    DB::insert('insert into news(title,description) values(?, ?)',['最新消息','這是一則勁爆的消息']);
+});
+Route::get('/read',function(){
+    $posts = News::all();
+    
+    foreach($posts as $post){
+        error_log($posts);
+        print($post->title);
+        // return $post->title;
+    };
+});
+Route::get('/DataTrainingCenter',function(){
+    return view('DataTrainingCenter',['posts' => News::all()]);
+});
+Route::get('/DataTrainingCenter/Article',function(){
+    return view('Article');
+});
+Route::post('/DataTrainingCenter/Article','ArticleController@PostArticle');
 //1號路由
 // Route::get('/users/{id?}',function($id=null){
 //     if(!is_null($id)){

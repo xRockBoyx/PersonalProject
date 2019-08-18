@@ -31,12 +31,16 @@
 					<li><a href="generic.html">Generic</a></li>
 				</ul>
 			</nav>
-
+        {{-- {{$user = Auth::getAuthIdentifierName()}} --}}
 		<!-- Banner -->
 			<section id="banner">
 				<div class="inner">
-					<h1>Hello!</h1>
-					<p>Please <a href="https://templated.co/">LOGIN</a> for more</p>
+                    <h1>Hello!</h1>
+                    @if (auth::check() == false)
+                        <p>Please <a href="/login">LOGIN</a> for more</p>
+                    @else 
+                        <p>Welcome! {{Auth::user()->name}}</p>
+                    @endif
 				</div>
 				<video autoplay loop muted playsinline src="images/banner.mp4"></video>
 			</section>
@@ -70,7 +74,7 @@
 						<section>
 							<div class="content">
 								<header>
-									<a href="#" class="icon fa-floppy-o"><span class="label">Icon</span></a>
+									<a href="/DataTrainingCenter" class="icon fa-floppy-o"><span class="label">Icon</span></a>
 									<h3>Data Training Center</h3>
 								</header>
 								<p>API,UploadFile,and so on</p>

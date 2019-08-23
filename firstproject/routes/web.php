@@ -11,14 +11,15 @@ use App\News;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function (){
     //print(config("auth.defaults"));
     //error_log(config("auth.defaults.passwords"));
     return view('index');
-});
-Route::get('/insert',function(){
-    DB::insert('insert into news(title,description) values(?, ?)',['最新消息','這是一則勁爆的消息']);
-});
+})->name('index.returnView');
+Route::get('/Logout','IndexController@Logout')->name('index.Logout');
+// Route::get('/insert',function(){
+//     DB::insert('insert into news(title,description) values(?, ?)',['最新消息','這是一則勁爆的消息']);
+// });
 Route::get('/read',function(){
     $posts = News::all();
     
@@ -35,6 +36,11 @@ Route::get('/DataTrainingCenter/Article',function(){
     return view('Article');
 });
 Route::post('/DataTrainingCenter/Article','ArticleController@PostArticle');
+Route::get('/Api',function(){
+    return view('Api');
+});
+Route::post('/DataTrainingCenter/ArticleEdit/{id}',['uses'=>'ArticleController@UpdateArticle']);
+Route::get('/DataTrainingCenter/ArticleEdit/{id}',['uses'=>'ArticleController@EditArticle']);
 //1號路由
 // Route::get('/users/{id?}',function($id=null){
 //     if(!is_null($id)){

@@ -12,25 +12,30 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<link rel="stylesheet" href="css/main.css" />
-	</head>
-	<body class="is-preload">
-
+		@section('sidebar')
 		<!-- Header -->
 			<header id="header">
-				<a class="logo" href="index.html">Industrious</a>
+				<a class="logo" href="/">WeiKai</a>
 				<nav>
 					<a href="#menu">Menu</a>
 				</nav>
 			</header>
-
 		<!-- Nav -->
 			<nav id="menu">
 				<ul class="links">
-					<li><a href="index.html">Home</a></li>
+					<li><a href="/">Home</a></li>
 					<li><a href="elements.html">Elements</a></li>
 					<li><a href="generic.html">Generic</a></li>
+					@if (auth::check() )
+						<li><a href={{action('IndexController@Logout')}}>Log out</a></li>
+					@endif
 				</ul>
 			</nav>
+		@show
+	</head>
+	
+	<body class="is-preload">
+	@section('contents')
         {{-- {{$user = Auth::getAuthIdentifierName()}} --}}
 		<!-- Banner -->
 			<section id="banner">
@@ -65,7 +70,7 @@
 						<section>
 							<div class="content">
 								<header>
-									<a href="#" class="icon fa-files-o"><span class="label">Icon</span></a>
+									<a href="/Api" class="icon fa-files-o"><span class="label">Icon</span></a>
 									<h3>Ante sem integer</h3>
 								</header>
 								<p>Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.</p>
@@ -75,9 +80,9 @@
 							<div class="content">
 								<header>
 									<a href="/DataTrainingCenter" class="icon fa-floppy-o"><span class="label">Icon</span></a>
-									<h3>Data Training Center</h3>
+									<h3>Post Article Practice</h3>
 								</header>
-								<p>API,UploadFile,and so on</p>
+								<p>Write Article</p>
 							</div>
 						</section>
 						<section>
@@ -202,13 +207,13 @@
 					</div>
 				</div>
 			</footer>
-
+		@show
 		<!-- Scripts -->
 			<script src="js/jquery.min.js"></script>
 			<script src="js/browser.min.js"></script>
 			<script src="js/breakpoints.min.js"></script>
 			<script src="js/util.js"></script>
 			<script src="js/main.js"></script>
-
 	</body>
+	
 </html>

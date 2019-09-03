@@ -28,6 +28,8 @@
 					<li><a href="generic.html">Generic</a></li>
 					@if (auth::check() )
 						<li><a href={{action('IndexController@Logout')}}>Log out</a></li>
+					@else 
+						<li><a href="/register">Register</a></li>
 					@endif
 				</ul>
 			</nav>
@@ -61,19 +63,19 @@
 						<section>
 							<div class="content">
 								<header>
-									<a href="#" class="icon fa-vcard-o"><span class="label">Icon</span></a>
-									<h3>Feugiat consequat</h3>
+									<a href="/ParseNews" class="icon fa-vcard-o"><span class="label">Icon</span></a>
+									<h3>Python Script Practices</h3>
 								</header>
-								<p>Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.</p>
+								<p>A page that for running python scripts.</p>
 							</div>
 						</section>
 						<section>
 							<div class="content">
 								<header>
 									<a href="/Api" class="icon fa-files-o"><span class="label">Icon</span></a>
-									<h3>Ante sem integer</h3>
+									<h3>API Center</h3>
 								</header>
-								<p>Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.</p>
+								<p>API for datas in DB.</p>
 							</div>
 						</section>
 						<section>
@@ -88,10 +90,10 @@
 						<section>
 							<div class="content">
 								<header>
-									<a href="#" class="icon fa-line-chart"><span class="label">Icon</span></a>
-									<h3>Interdum gravida</h3>
+									<a href="/Record" class="icon fa-line-chart"><span class="label">Icon</span></a>
+									<h3>打卡系統</h3>
 								</header>
-								<p>Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.</p>
+								<p>社團上課打卡系統練習</p>
 							</div>
 						</section>
 						<section>

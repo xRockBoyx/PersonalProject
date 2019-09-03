@@ -1,5 +1,6 @@
 <?php
 use App\News;
+use Carbon\Carbon;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,9 +12,10 @@ use App\News;
 |
 */
 
-Route::get('/', function (){
+Route::get('/',function (){
     //print(config("auth.defaults"));
     //error_log(config("auth.defaults.passwords"));
+    error_log(date('Y,m,d'));
     return view('index');
 })->name('index.returnView');
 Route::get('/Logout','IndexController@Logout')->name('index.Logout');
@@ -41,6 +43,9 @@ Route::get('/Api',function(){
 });
 Route::post('/DataTrainingCenter/ArticleEdit/{id}',['uses'=>'ArticleController@UpdateArticle']);
 Route::get('/DataTrainingCenter/ArticleEdit/{id}',['uses'=>'ArticleController@EditArticle']);
+Route::get('/ParseNews','PythonScriptController@ParseTitle');
+Route::get('/Record',['uses'=>'RecordController@GetPage']);
+Route::get('/Record1',['uses'=>'RecordController@CheckIn']);
 //1號路由
 // Route::get('/users/{id?}',function($id=null){
 //     if(!is_null($id)){

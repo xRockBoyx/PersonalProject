@@ -61,6 +61,27 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="stu_class" class="col-md-4 col-form-label text-md-right">{{ __('班級') }}</label>
+                            <div class="col-md-6">
+                                <input id="班級" type="text" class="form-control" name="班級" >
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                                <label for="stu_id" class="col-md-4 col-form-label text-md-right">{{ __('學號') }}</label>
+                                <div class="col-md-6">
+                                    <input id="學號" type="text" class="form-control" name="學號" >
+                                </div>
+                        </div>
+
+                        <div class="form-group row">
+                                <label for="stu_name" class="col-md-4 col-form-label text-md-right">{{ __('姓名') }}</label>
+                                <div class="col-md-6">
+                                    <input id="姓名" type="text" class="form-control" name="姓名" >
+                                </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

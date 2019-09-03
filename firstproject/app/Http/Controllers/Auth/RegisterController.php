@@ -52,6 +52,9 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            '班級' => ['required', 'string', 'max:255'],
+            '學號' => ['required', 'string', 'max:255'],
+            '姓名' => ['required', 'string', 'max:255'],
         ]);
     }
 
@@ -67,6 +70,10 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'stu_class' => $data['班級'],
+            'stu_id' => $data['學號'],
+            'stu_name' => $data['姓名'],
+            'priority' => 2,
         ]);
     }
 }

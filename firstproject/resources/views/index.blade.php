@@ -26,7 +26,7 @@
 					<li><a href="/">Home</a></li>
 					<li><a href="elements.html">Elements</a></li>
 					<li><a href="generic.html">Generic</a></li>
-					@if (auth::check() )
+					@if (Auth::check() )
 						<li><a href={{action('IndexController@Logout')}}>Log out</a></li>
 					@else 
 						<li><a href="/register">Register</a></li>
@@ -43,7 +43,7 @@
 			<section id="banner">
 				<div class="inner">
                     <h1>Hello!</h1>
-                    @if (auth::check() == false)
+                    @if (Auth::check() == false)
                         <p>Please <a href="/login">LOGIN</a> for more</p>
                     @else 
                         <p>Welcome! {{Auth::user()->name}}</p>

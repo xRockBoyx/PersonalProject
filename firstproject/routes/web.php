@@ -11,6 +11,7 @@ use Carbon\Carbon;
 | contains the "web" middleware group. Now create something great!
 |
 */
+URL::forceRootUrl('http://firstproject.xrockboyx.tw');
 
 Route::get('/',function (){
     //print(config("auth.defaults"));
@@ -49,15 +50,15 @@ Route::get('/Record1',['uses'=>'RecordController@CheckIn']);
 
 //==========================Override Auth routes========================
 
-Route::get('/login','LoginController@showLoginForm');
-Route::post('/login','LoginController@login');
-Route::post('/logout','LoginController@logout');
-Route::post('/password/email','ForgotPasswordController@sendResetLinkEmail');
-Route::get('/password/reset','ForgotPasswordController@showLinkRequestForm');
-Route::post('/password/reset','ResetPasswordController@reset');
-Route::get('password/reset/{token}',['uses'=>'ResetPasswordController@showResetForm']);
-Route::get('register','RegisterController@showRegistrationForm');
-Route::post('register','RegisterController@register');
+// Route::get('/login','Auth\LoginController@showLoginForm')->name('login');
+// Route::post('/login','Auth\LoginController@login');
+// Route::post('/logout','Auth\LoginController@logout')->name('logout');
+// Route::post('/password/email','Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+// Route::get('/password/reset','Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+// Route::post('/password/reset','Auth\ResetPasswordController@reset');
+// Route::get('password/reset/{token}',['uses'=>'Auth\ResetPasswordController@showResetForm'])->name('password.reset');
+// Route::get('register','Auth\RegisterController@showRegistrationForm')->name('register');
+// Route::post('register','Auth\RegisterController@register');
 
 //=====================================================================
 

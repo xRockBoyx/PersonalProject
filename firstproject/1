@@ -1,0 +1,17 @@
+35.229.218.5:80 {
+
+    root ./public
+    log caddy-access.log
+    errors caddy-error.log
+
+    fastcgi / 127.0.0.1:9000 php {
+        index index.php
+    }
+    
+    rewrite {
+        r .*
+        ext /
+        to /index.php?{query}
+    }
+
+}

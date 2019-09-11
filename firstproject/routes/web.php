@@ -46,6 +46,21 @@ Route::get('/DataTrainingCenter/ArticleEdit/{id}',['uses'=>'ArticleController@Ed
 Route::get('/ParseNews','PythonScriptController@ParseTitle');
 Route::get('/Record',['uses'=>'RecordController@GetPage']);
 Route::get('/Record1',['uses'=>'RecordController@CheckIn']);
+
+//==========================Override Auth routes========================
+
+Route::get('/login','LoginController@showLoginForm');
+Route::post('/login','LoginController@login');
+Route::post('/logout','LoginController@logout');
+Route::post('/password/email','ForgotPasswordController@sendResetLinkEmail');
+Route::get('/password/reset','ForgotPasswordController@showLinkRequestForm');
+Route::post('/password/reset','ResetPasswordController@reset');
+Route::get('password/reset/{token}',['uses'=>'ResetPasswordController@showResetForm']);
+Route::get('register','RegisterController@showRegistrationForm');
+Route::post('register','RegisterController@register');
+
+//=====================================================================
+
 //1號路由
 // Route::get('/users/{id?}',function($id=null){
 //     if(!is_null($id)){
